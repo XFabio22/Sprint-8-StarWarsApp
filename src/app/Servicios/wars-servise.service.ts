@@ -14,9 +14,13 @@ export class WarsServiseService {
 
   allStarShips(PagesNum:string):Observable<StarShips>{
     const url = `${this.Star_Url}/starships/?page=${PagesNum}`;
-    
     return this.http.get<StarShips>(url);
-  
+  }
+
+  datailsStarShips():Observable<StarShips>{  //Buscar por indice de nave num???= 2,3,5,9,10etc
+    const url = `${this.Star_Url}/starships/num???/`;
+    return this.http.get<StarShips>(url);
+
   }
 
 

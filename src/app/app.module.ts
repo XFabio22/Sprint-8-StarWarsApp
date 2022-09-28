@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ShowStarShipsComponent } from './show-star-ships/show-star-ships.component';
 
 
 
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     StarShipsComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    ShowStarShipsComponent
   ],
   imports: [
     BrowserModule,
