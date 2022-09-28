@@ -2,15 +2,22 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
-            <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-action ">
-                    The current button
-                </button>
-                <button type="button" class="list-group-item list-group-item-action">A second item</button>
-                <button type="button" class="list-group-item list-group-item-action">A third button item</button>
-                <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
-                <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button item</button>
-            </div>
+            <ul class="list-group bg-dark" *ngFor="let item of naves">
+                <li class="list-group-item text-white bg-dark mb-2">
+                    <h3>{{item.name}}</h3>
+                    <h6>{{item.model}} </h6>
+                </li>
+            </ul>
+            <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" >Previous</a></li>
+                <li class="page-item"><a class="page-link"(click)="buscar('1')">1</a></li>
+                <li class="page-item"><a class="page-link" (click)="buscar('2')">2</a></li>
+                <li class="page-item"><a class="page-link"(click)="buscar('3')">3</a></li>
+                <li class="page-item"><a class="page-link"(click)="buscar('4')">4</a></li>
+                <li class="page-item"><a class="page-link">Next</a></li>
+            </ul>
+            </nav>
         </div>
         <div class="col-3"></div>
     </div>
