@@ -5,27 +5,27 @@
     </div>
     <div class="col-10 text-white-50 ">
         <img src="" class="rounded mx-auto d-block mb-3" alt="...">
-        <h3 class="mb-3">NAVEXDZS</h3>
+        <h3 class="mb-3">{{ships.name}}</h3>
         <P>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate nobis quae blanditiis, magnam obcaecati voluptatibus laborum id possimus est similique consectetur corrupti ipsa quidem dolore. Voluptates culpa dicta ab quis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iusto ut aut, et dolorem error odit, nesciunt commodi sequi illum cupiditate. Dolore praesentium sunt temporibus unde eos similique et? Vel.</P>
 
         <div class="row">
             <div class="col-6">
-                <P>Model:</P>
+                <P>Model:{{ships.name}}</P>
             </div>
             <div class="col-6">
-                <p>Manofacture:</p>
+                <p>Manofacturer:{{ships.manufacturer}}</p>
             </div>
             <div class="col-6">
-                <p>Cost in Credits:</p>
+                <p>Cost in Credits:{{ships.cost_in_credits |number}}$</p>
             </div>
             <div class="col-6">
-                <p>Length:</p>
+                <p>Length:{{ships.length |number}}m</p>
             </div>
             <div class="col-6">
-                <p>Atmospheric:</p>
+                <p>Atmospheric Speed:{{ships.max_atmosphering_speed}}</p>
             </div>
             <div class="col-6">
-                <p>Crew:</p>
+                <p>Crew:{{ships.crew }}</p>
             </div>
         </div>
     </div>

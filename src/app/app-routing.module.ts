@@ -16,7 +16,7 @@ const routes: Routes = [
       component:StarShipsComponent
     },
     {
-      path:'Details/StarShips',
+      path:'details/:url',
       component:ShowStarShipsComponent
     }
 ];

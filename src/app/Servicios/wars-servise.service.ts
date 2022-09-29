@@ -17,10 +17,9 @@ export class WarsServiseService {
     return this.http.get<StarShips>(url);
   }
 
-  datailsStarShips():Observable<StarShips>{  //Buscar por indice de nave num???= 2,3,5,9,10etc
-    const url = `${this.Star_Url}/starships/num???/`;
+  datailsStarShips(num: string):Observable<StarShips>{  //Buscar por indice de nave num???= 2,3,5,9,10etc
+    const url = `${num}`;
     return this.http.get<StarShips>(url);
-
   }
 
 

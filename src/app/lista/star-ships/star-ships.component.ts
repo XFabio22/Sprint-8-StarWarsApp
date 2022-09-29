@@ -13,7 +13,7 @@ export class StarShipsComponent implements OnInit {
   constructor(private WarsServiseService:WarsServiseService) { }
 
   naves:Result[]= []
-
+  
   buscar(PagesNum:string){
     this.WarsServiseService.allStarShips(PagesNum).subscribe({
 
@@ -23,8 +23,10 @@ export class StarShipsComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
+  
+  ngOnInit():void {
     this.buscar("1");
+  
   }
-
+  
 }
