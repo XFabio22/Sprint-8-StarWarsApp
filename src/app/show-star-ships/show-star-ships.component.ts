@@ -1,7 +1,7 @@
 import { WarsServiseService } from './../Servicios/wars-servise.service';
 import { Component, OnInit } from '@angular/core';
 import { Result } from '../interfaces/starships.interfaces';
-import { async, switchMap, tap } from 'rxjs';
+import {  observable, switchMap, tap,  } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -15,9 +15,9 @@ export class ShowStarShipsComponent implements OnInit {
   constructor(private activatedRoute:ActivatedRoute ,   private WarsServiseService:WarsServiseService) { }
   ships!:Result
   ngOnInit(): void {
-    
+    // switchMap Recibe un observable y regresa otro observable
     this.activatedRoute.params
-    .pipe(
+     .pipe( //pipe sirve para declarar cualquier cantidad de operadores que trabajaran con el producto de este Observable
       switchMap(({url} ) =>
     this.WarsServiseService.datailsStarShips(url)),
       tap(console.log)

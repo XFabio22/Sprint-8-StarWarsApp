@@ -13,6 +13,14 @@ export class StarShipsComponent implements OnInit {
   constructor(private WarsServiseService:WarsServiseService) { }
 
   naves:Result[]= []
+
+  arrayUrl : string[] = []
+  buscarUrl(url:string){
+    const url1 =  /^(\w+):\/\/([^\/]+)([^]+)$/.exec(url)
+    console.log(url1);
+    return  this.arrayUrl =  url1!.splice(0,3);
+    
+  }
   
   buscar(PagesNum:string){
     this.WarsServiseService.allStarShips(PagesNum).subscribe({
