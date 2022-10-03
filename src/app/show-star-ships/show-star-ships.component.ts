@@ -14,6 +14,7 @@ export class ShowStarShipsComponent implements OnInit {
 
   constructor(private activatedRoute:ActivatedRoute ,   private WarsServiseService:WarsServiseService) { }
   ships!:Result
+  img:string = 'https://starwars-visualguide.com/assets/img/starships';
   ngOnInit(): void {
     // switchMap Recibe un observable y regresa otro observable
     this.activatedRoute.params
