@@ -1,6 +1,7 @@
 import { Result, StarShips } from './../../interfaces/starships.interfaces';
 import { WarsServiseService } from './../../Servicios/wars-servise.service';
 import { Component, OnInit } from '@angular/core';
+import { SlicePipe } from '@angular/common';
 
 
 @Component({
@@ -13,12 +14,11 @@ export class StarShipsComponent implements OnInit {
   constructor(private WarsServiseService:WarsServiseService) { }
 
   naves:Result[]= []
-
-  arrayUrl : string[] = []
-  buscarUrl(url:string){
-    const url1 =  /^(\w+):\/\/([^\/]+)([^]+)$/.exec(url)
+  URLNAVE:string = ''
+  url(url1:string){
+  
     console.log(url1);
-    return  this.arrayUrl =  url1!.splice(0,3);
+    
     
   }
   
@@ -34,7 +34,6 @@ export class StarShipsComponent implements OnInit {
   
   ngOnInit():void {
     this.buscar("1");
-  
   }
   
 }

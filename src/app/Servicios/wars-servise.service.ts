@@ -11,6 +11,7 @@ export class WarsServiseService {
   private Star_Url:string = 'https://swapi.dev/api/';
 
 
+
   constructor(private http : HttpClient) { }
 
   allStarShips(PagesNum:string):Observable<StarShips>{
@@ -19,7 +20,7 @@ export class WarsServiseService {
   }
 
   datailsStarShips(num: string):Observable<StarShips>{  //Buscar por indice de nave num???= 2,3,5,9,10etc
-    const url = `  ${num}`;
+    const url = `${this.Star_Url}/starships/${num}`;
     return this.http.get<StarShips>(url);
   }
 

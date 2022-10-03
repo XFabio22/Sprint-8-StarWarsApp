@@ -1,3 +1,4 @@
+import { IdPipe } from './pipe/id';
 import { HomeComponent } from './Home/home/home.component';
 import { StarShipsComponent } from './lista/star-ships/star-ships.component';
 
@@ -18,7 +19,8 @@ import { ShowStarShipsComponent } from './show-star-ships/show-star-ships.compon
     StarShipsComponent,
     HomeComponent,
     NavBarComponent,
-    ShowStarShipsComponent
+    ShowStarShipsComponent,
+    IdPipe
   ],
   imports: [
     BrowserModule,
