@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShowStarShipsComponent } from './show-star-ships/show-star-ships.component';
+import { WelcomeComponent } from './Home/welcome/welcome.component';
 
 
 
@@ -20,7 +21,8 @@ import { ShowStarShipsComponent } from './show-star-ships/show-star-ships.compon
     HomeComponent,
     NavBarComponent,
     ShowStarShipsComponent,
-    IdPipe
+    IdPipe,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

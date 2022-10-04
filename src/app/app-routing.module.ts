@@ -1,3 +1,4 @@
+import { WelcomeComponent } from './Home/welcome/welcome.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,7 +9,11 @@ import { ShowStarShipsComponent } from './show-star-ships/show-star-ships.compon
 const routes: Routes = [
 
     {
-      path:'',
+      path:'Welcome',
+      component:WelcomeComponent
+    },
+    {
+      path: 'Home',
       component:HomeComponent
     },
     {
@@ -18,6 +23,10 @@ const routes: Routes = [
     {
       path:'details/:url',
       component:ShowStarShipsComponent
+    },
+    {
+      path:'**',
+      redirectTo:'Welcome'
     }
 ];
 
