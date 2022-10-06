@@ -1,0 +1,56 @@
+<div class="container ">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 bg-light mt-5 text-center b">
+            <h2>Sign Up to <br> Wars web</h2>
+            <form (ngSubmit)="submit()" [formGroup]="myForm">
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Name  </label>
+                    <div class="col-sm-12 col-md-12">
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        
+                        formControlName="clientName"
+                        >
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label  class="col-sm-2 col-form-label">email  </label>
+                    <div class="col-sm-12 col-md-12">
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        
+                        formControlName="clientGmail"
+                        >
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-12 col-md-12 "  >
+                        <input type="password"
+                        class="form-control" 
+                        
+                        formControlName="ClientPassword"
+                        >
+                    </div>
+                </div>
+                
+                    <button class="btn btn-primary " [disabled]="myForm.invalid" (click)="submit()" > <a class="text-white"  routerLink="/welcome" > Sing Up  </a></button>
+                    
+                <span></span>
+            </form>
+            
+
+            <div class="text-center">
+                <p>You have acount?<a routerLink="/auth/login">Sing in an account.</a> </p>
+                
+            </div>
+        </div>
+        <div class="col-3">
+
+        </div>
+    </div>
+
+</div>

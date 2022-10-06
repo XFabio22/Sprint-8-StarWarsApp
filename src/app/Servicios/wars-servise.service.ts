@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { StarShips  } from '../interfaces/starships.interfaces';
+import { Users } from '../interfaces/user.intefaces';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class WarsServiseService {
 
 
   constructor(private http : HttpClient) { }
+  UsersList:Users[]=[]
 
   allStarShips(PagesNum:string):Observable<StarShips>{
     const url = `${this.Star_Url}/starships/?page=${PagesNum}`;
@@ -24,7 +26,10 @@ export class WarsServiseService {
     return this.http.get<StarShips>(url);
   }
 
-
+  PushLocalStorage(lista:Users[]){
+    localStorage.setItem('lista',JSON.stringify(lista))
+  }
+  
 
 }
 

@@ -14,6 +14,7 @@ import { WelcomeComponent } from './Home/welcome/welcome.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,12 +23,13 @@ import { WelcomeComponent } from './Home/welcome/welcome.component';
     NavBarComponent,
     ShowStarShipsComponent,
     IdPipe,
-    WelcomeComponent
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+  
 
   ],
   providers: [],

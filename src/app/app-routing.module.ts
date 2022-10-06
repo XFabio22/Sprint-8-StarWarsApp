@@ -7,6 +7,10 @@ import { StarShipsComponent } from './lista/star-ships/star-ships.component';
 import { ShowStarShipsComponent } from './show-star-ships/show-star-ships.component';
 
 const routes: Routes = [
+  {
+    path:'auth',
+    loadChildren: ( )=> import('./auth/auth.module').then(m=> m.AuthModule)
+  },
 
     {
       path:'Welcome',
