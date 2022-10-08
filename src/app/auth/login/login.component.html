@@ -5,23 +5,21 @@
             <h2>Sign in to <br> Wars web</h2>
             <form >
                 <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">email  </label>
+                    <label  class="col-sm-2 col-form-label">Username  </label>
                     <div class="col-sm-12 col-md-12">
                         <input 
                         type="text" 
-                        readonly class="form-control" id="staticEmail" 
-                    
-                        >
+                        readonly class="form-control" >
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <label  class="col-sm-2 col-form-label">email</label>
                     <div class="col-sm-12 col-md-12 "  >
-                        <input type="password" class="form-control" id="inputPassword"
+                        <input type="text" class="form-control" 
                         >
                     </div>
                 </div>
-                <button class="btn btn-success" (click)="validate()" >Sing In</button>
+                <button class="btn btn-success" (click)="login()" >Sing In</button>
             </form>
             
 

@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthService } from './../Services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Component, OnInit } from '@angular/core';
@@ -9,14 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) { }
-  myForm:FormGroup = this.fb.group({
-    clientName:['',[Validators.required,Validators.minLength(3)]],
-    clientGmail:['',[Validators.required]],
-    ClientPassword:['',[Validators.required,Validators.minLength(4)]]
-  })
-  validate(){
-    
+  constructor(private authService:AuthService , private router:Router) { }
+
+  login(){
+    this.authService.Login().subscribe(resp =>{
+      console.log(resp);
+      
+      if(!resp.id){
+        this.router.navigate(['./StarWars/Home'])
+      }
+
+    })
   }
   ngOnInit(): void {
   }

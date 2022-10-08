@@ -1,7 +1,7 @@
 import { Result, StarShips } from './../../interfaces/starships.interfaces';
 import { WarsServiseService } from './../../Servicios/wars-servise.service';
 import { Component, OnInit } from '@angular/core';
-import { SlicePipe } from '@angular/common';
+
 
 
 @Component({

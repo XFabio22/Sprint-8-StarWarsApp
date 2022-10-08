@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { Result } from "../interfaces/starships.interfaces";
+import { Result } from "../../interfaces/starships.interfaces";
 
 
 @Pipe({

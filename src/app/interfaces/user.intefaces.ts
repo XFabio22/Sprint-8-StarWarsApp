@@ -1,5 +1,5 @@
-export interface Users {
-    clientName:string
-    clientGmail:string
-    ClientPassword:string
+export interface Users{
+    id:string;
+    email:string;
+    usuario:string;
 }

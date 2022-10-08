@@ -1,7 +1,7 @@
-import { WarsServiseService } from './../Servicios/wars-servise.service';
+import { WarsServiseService } from '../../Servicios/wars-servise.service';
 import { Component, OnInit } from '@angular/core';
-import { Result } from '../interfaces/starships.interfaces';
-import {  observable, switchMap, tap,  } from 'rxjs';
+import { Result } from '../../interfaces/starships.interfaces';
+import { switchMap, tap,  } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
