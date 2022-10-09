@@ -1,3 +1,4 @@
+import { pilots } from './../../interfaces/starships.interfaces';
 import { Pipe, PipeTransform } from "@angular/core";
 import { Result } from "../../interfaces/starships.interfaces";
 
@@ -6,7 +7,7 @@ import { Result } from "../../interfaces/starships.interfaces";
     name: 'id'
 })
 export class IdPipe implements PipeTransform {
-    transform( result: Result  ): string  {
+    transform( result: Result | pilots ): string  {
         return result.url.replace(/\D/g, '');
     }
 

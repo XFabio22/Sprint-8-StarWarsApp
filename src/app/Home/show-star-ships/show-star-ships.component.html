@@ -31,6 +31,9 @@
                     <div class="col-6">
                         <p>Crew:{{ships.crew }}</p>
                     </div>
+                    <div class="col-6">
+                        <a [routerLink]="['/StarWars/pilots', ships | id]">More...</a>
+                    </div>
                 </div>
                 <p class="card-text"><small class="text-muted">Last updated {{ships.edited}}</small></p>
             </div>

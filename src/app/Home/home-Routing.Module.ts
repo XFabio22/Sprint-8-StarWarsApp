@@ -1,3 +1,4 @@
+import { PilotsComponent } from './pilots/pilots.component';
 import { PrincipalPageComponent } from './principal-page/principal-page.component';
 
 import { Routes, RouterModule } from '@angular/router';
@@ -26,6 +27,10 @@ const rutas1 :Routes= [
         {
             path:'details/:url',
             component:ShowStarShipsComponent
+        },
+        {
+            path:'pilots/:id',
+            component:PilotsComponent
         },
         {
             path:'**',

@@ -13,7 +13,7 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
     
   }
-
+  
   get auth(){
     return this.authService.auth
   }

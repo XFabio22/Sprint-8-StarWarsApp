@@ -1,8 +1,9 @@
+
 import { WarsServiseService } from '../../Servicios/wars-servise.service';
 import { Component, OnInit } from '@angular/core';
 import { Result } from '../../interfaces/starships.interfaces';
 import { switchMap, tap,  } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-star-ships',
@@ -12,9 +13,10 @@ import { ActivatedRoute } from '@angular/router';
 export class ShowStarShipsComponent implements OnInit {
 
 
-  constructor(private activatedRoute:ActivatedRoute ,   private WarsServiseService:WarsServiseService) { }
+  constructor(private activatedRoute:ActivatedRoute ,   private WarsServiseService:WarsServiseService,private Router:Router) { }
   ships!:Result
   img:string = 'https://starwars-visualguide.com/assets/img/starships';
+
   ngOnInit(): void {
     // switchMap Recibe un observable y regresa otro observable
     this.activatedRoute.params

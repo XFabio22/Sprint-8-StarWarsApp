@@ -1,3 +1,4 @@
+import { pilots } from './../interfaces/starships.interfaces';
 import { environment } from './../../environments/environment';
 
 import { Injectable } from '@angular/core';
@@ -15,23 +16,22 @@ export class WarsServiseService {
 
 
   constructor(private http : HttpClient) { }
-  // UsersList:Users[]=[]
 
-  allStarShips(PagesNum:string):Observable<StarShips>{
+
+  allStarShips(PagesNum:number):Observable<StarShips>{
     const url = `${this.Star_Url}/starships/?page=${PagesNum}`;
     return this.http.get<StarShips>(url);
   }
 
-  datailsStarShips(num: string):Observable<StarShips>{  //Buscar por indice de nave num???= 2,3,5,9,10etc
+  datailsStarShips(num: string):Observable<StarShips>{  
     const url = `${this.Star_Url}/starships/${num}`;
     return this.http.get<StarShips>(url);
   }
 
-  // PushLocalStorage(lista:Users[]){
-  //   localStorage.setItem('lista',JSON.stringify(lista))
-  // }
-  
-
+  pilotsDetails(num:string):Observable<pilots>{
+    const url = `${this.Star_Url}/people/${num}`;
+    return this.http.get<pilots>(url);
+  } 
 }
 
 

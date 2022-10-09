@@ -1,3 +1,4 @@
+
 import { Result, StarShips } from './../../interfaces/starships.interfaces';
 import { WarsServiseService } from './../../Servicios/wars-servise.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,9 +12,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StarShipsComponent implements OnInit {
 
-  constructor(private WarsServiseService:WarsServiseService) { }
+  constructor(private WarsServiseService:WarsServiseService) {
+  }
 
   naves:Result[]= []
+  page:number = 1;
   URLNAVE:string = ''
   url(url1:string){
   
@@ -22,18 +25,23 @@ export class StarShipsComponent implements OnInit {
     
   }
   
-  buscar(PagesNum:string){
-    this.WarsServiseService.allStarShips(PagesNum).subscribe({
+  buscar(){
+    this.WarsServiseService.allStarShips(this.page).subscribe({
 
       next:(response:StarShips)=>{
         this.naves = response.results
       }
     })
   }
-
-  
   ngOnInit():void {
-    this.buscar("1");
+    this.buscar()
+  }
+  onScroll(): void {
+    this.WarsServiseService.allStarShips(++this.page)
+      .subscribe((response: StarShips) => {
+        this.naves.push(...response.results);
+        console.log('loaded',this.naves)
+      })
   }
   
 }

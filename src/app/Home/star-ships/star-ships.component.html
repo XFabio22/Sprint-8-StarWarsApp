@@ -7,12 +7,18 @@
         </div>  
     </div>
 </div>
+
 <ng-template #divCarga>
     <div class="continer ">
         <div class="row">
             <div class="col-3"></div>
             <div class="col-6">
-                <ul class="list-group bg-dark" *ngFor="let item of naves">
+                <ul class="list-group bg-dark" *ngFor="let item of naves"
+                    infinite-scroll
+                [infiniteScrollDistance]="4"
+                [infiniteScrollThrottle]="2000" 
+                (scrolled)="onScroll()"
+                >
                     <li class="list-group-item text-white-50 bg-dark mb-2">
                         <h3>{{item.name}}</h3>
                         <h6>{{item.model}} </h6>
@@ -20,16 +26,6 @@
                         
                     </li>
                 </ul>
-                <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" >Previous</a></li>
-                    <li class="page-item"><a class="page-link"(click)="buscar('1')">1</a></li>
-                    <li class="page-item"><a class="page-link" (click)="buscar('2')">2</a></li>
-                    <li class="page-item"><a class="page-link"(click)="buscar('3')">3</a></li>
-                    <li class="page-item"><a class="page-link"(click)="buscar('4')">4</a></li>
-                    <li class="page-item"><a class="page-link">Next</a></li>
-                </ul>
-                </nav>
             </div>
             <div class="col-3"></div>
         </div>
