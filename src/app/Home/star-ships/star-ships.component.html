@@ -1,4 +1,4 @@
-<div class="container text-center"  *ngIf="!naves;else  divCarga">
+<div class="container text-center"  *ngIf="naves.length == 0; else divCarga">
     <div class="row">
         <div class="col-12">
             <div class="spinner-border text-light" role="status">

@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth/guards/auth.guard';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 import { NgModule } from '@angular/core';
@@ -6,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:'',
+    path:'Welcome',
     component: WelcomeComponent
   },
   {
@@ -15,7 +16,13 @@ const routes: Routes = [
   },
   {
     path:'StarWars',
-    loadChildren:()=> import('./Home/home.module').then(m =>m.HomeModule)
+    loadChildren:()=> import('./Home/home.module').then(m =>m.HomeModule),
+    canLoad: [ AuthGuard ],
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'**',
+    redirectTo:'Welcome'
   }
 
 ];

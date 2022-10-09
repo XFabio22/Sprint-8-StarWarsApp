@@ -1,3 +1,4 @@
+import { PrincipalPageComponent } from './principal-page/principal-page.component';
 
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -8,10 +9,11 @@ import { StarShipsComponent } from './star-ships/star-ships.component';
 import { ShowStarShipsComponent } from './show-star-ships/show-star-ships.component';
 
 
-const rutas :Routes= [
+const rutas1 :Routes= [
 
     {
         path:'',
+        component:PrincipalPageComponent,
         children:[
         {
             path: 'Home',
@@ -37,7 +39,7 @@ const rutas :Routes= [
 declarations: [],
 imports: [
     CommonModule,
-    RouterModule.forChild(rutas)
+    RouterModule.forChild(rutas1)
 
 ],exports:[
     RouterModule

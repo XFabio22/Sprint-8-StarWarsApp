@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { IdPipe } from './pipe/id';
 import { ShowStarShipsComponent } from './show-star-ships/show-star-ships.component';
 import { StarShipsComponent } from './star-ships/star-ships.component';
+import { PrincipalPageComponent } from './principal-page/principal-page.component';
 
 
 
@@ -15,7 +16,8 @@ import { StarShipsComponent } from './star-ships/star-ships.component';
     HomeComponent,
     IdPipe,
     ShowStarShipsComponent,
-    StarShipsComponent
+    StarShipsComponent,
+    PrincipalPageComponent
 
   ],
   imports: [

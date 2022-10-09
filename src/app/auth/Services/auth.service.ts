@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { Observable,of, pipe } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { Users } from 'src/app/interfaces/user.intefaces';
 import { environment } from 'src/environments/environment';
 
@@ -8,14 +9,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-
-  // constructor(private http: HttpClient) { }
-  // //   PushLocalStorage(lista:Users){
-  // //   localStorage.setItem('lista',JSON.stringify(lista))
-  // // }
-
-
-  
   private base_Url: string = environment.baseUrl
   constructor(private http: HttpClient) { }
   private _auth:Users |undefined;
@@ -23,11 +16,26 @@ export class AuthService {
     return {...this._auth!}
   }
 
+  statusUser():Observable<boolean> {
+    if(!localStorage.getItem('token')){
+      return of(false); //el OF sirve para crear Observable en base al argumento que le ponemos 
+    }
+    return this.http.get<Users>(`${this.base_Url}/usuarios/1`)
+    .pipe(
+      map(resp=> {
+
+        this._auth = resp;
+        console.log('map',resp);
+        return true;
+      })
+    )
+  }
   Login(){
     return this.http.get<Users>(`${this.base_Url}/usuarios/1`)
 
     .pipe(
-      tap(resp=> this._auth = resp )
+      tap(resp=> this._auth = resp ),
+      tap(resp => localStorage.setItem('token',resp.id))
       );
   }
 
@@ -36,13 +44,4 @@ export class AuthService {
     this._auth = undefined;
   }
 
-
-  // getLocalStorage(item:string){
-  //   if(!localStorage.getItem(item)){
-  //     return;
-  //   }
-  //   this._authUser = JSON.parse(localStorage.getItem(item)!)
-    
-  // }
-  
 }
