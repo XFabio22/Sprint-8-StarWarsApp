@@ -31,4 +31,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 NPM
 `npm install -g json-server`.
 Start JSON Server
-`json-server --watch db.json` EN LA CARPETA DataServer 
+`json-server --watch db.json` EN LA CARPETA SRC > APP >DataServer 
