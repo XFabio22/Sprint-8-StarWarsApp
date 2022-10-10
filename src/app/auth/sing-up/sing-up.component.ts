@@ -15,7 +15,7 @@ export class SingUpComponent implements OnInit {
   myForm:FormGroup =this.fb.group({
     id:['',Validators.required],
     email:['',Validators.required],
-    usuario:['',Validators.required]
+    usuario:['',Validators.required],
   })
   ngOnInit(): void {
   }
@@ -24,12 +24,13 @@ export class SingUpComponent implements OnInit {
     const newUser:Users={
       id: this.myForm.value.id,
       email: this.myForm.value.email,
-      usuario: this.myForm.value.usuario
+      usuario: this.myForm.value.usuario,
     }
 
     if(this.myForm.invalid){
       return
     }else if(this.myForm.valid){
+      this.AuthService.usuariosList.push(newUser)
       this.AuthService.register(newUser)
       .subscribe(user => {
         console.log(user)

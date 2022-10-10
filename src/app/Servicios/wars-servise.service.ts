@@ -30,6 +30,7 @@ export class WarsServiseService {
 
   pilotsDetails(num:string):Observable<pilots>{
     const url = `${this.Star_Url}/people/${num}`;
+
     return this.http.get<pilots>(url);
   } 
 }

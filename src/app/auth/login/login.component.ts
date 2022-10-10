@@ -16,8 +16,9 @@ export class LoginComponent implements OnInit {
 
   myForm: FormGroup = this.fb.group({
     id : ['',Validators.required],
-    name : ['',Validators.required],
-    correo:['',Validators.required]
+    usuario : ['',Validators.required],
+    email:['',Validators.required],
+
   })
 
   constructor(private authService:AuthService , private router:Router, private fb:FormBuilder) { }
@@ -25,14 +26,22 @@ export class LoginComponent implements OnInit {
   
   }
   login(){
-    this.authService.Login().subscribe(resp =>{
-      console.log(resp);
-      
-      if(resp.id){
-        this.router.navigate(['./Welcome'])
-      }
-
-    })
+    const usuarioRegistrado:Users ={
+      id: this.myForm.value.id,
+      email: this.myForm.value.email,
+      usuario: this.myForm.value.usuario,
+    }
+    if(this.myForm.invalid){
+      return
+    }else if(this.myForm.valid){
+    this.authService.nuevo=usuarioRegistrado;
+      this.authService.Login().subscribe(resp =>{
+        console.log(resp);
+          if(resp.id){
+            this.router.navigate(['./Welcome'])
+          }
+      })
+    }
   }
   logout(){
     this.authService.logout();

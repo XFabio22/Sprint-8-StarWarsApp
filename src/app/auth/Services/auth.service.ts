@@ -16,12 +16,14 @@ export class AuthService {
     return {...this._auth!}
   }
   // fs = require('ts')
+  nuevo!:Users
+  usuariosList:Users[] =[]
 
   statusUser():Observable<boolean> {
-    if(!localStorage.getItem('token1')){
+    if(!localStorage.getItem('token')){
       return of(false); //el OF sirve para crear Observable en base al argumento que le ponemos 
     }
-    return this.http.get<Users>(`${this.base_Url}/usuarios/1`)
+    return this.http.get<Users>(`${this.base_Url}/usuarios/${this.nuevo.id}`)
     .pipe(
       map(resp=> {
 
@@ -32,27 +34,30 @@ export class AuthService {
     )
   }
   Login(){
-    return this.http.get<Users>(`${this.base_Url}/usuarios/1`)
-
+    // this.saveLocal()
+    return this.http.get<Users>(`${this.base_Url}/usuarios/${this.nuevo.id}`)
     .pipe(
       tap(resp=> this._auth = resp ),
-      tap(resp => localStorage.setItem('token',resp.id))
+      tap(resp => localStorage.setItem('token',resp.id!))
       );
   }
 
 
   register(user:Users ) {
+    this.saveLocal()
     return this.http.post<Users>(`${this.base_Url}/usuarios/`, user)
       .pipe(
         tap(user => this._auth = user),
         tap(user => localStorage.setItem('token', user.id!))
+        
       )
+      
   }
 
 
-  // saveLocal(usuairo:Users[]){ 
-  //   localStorage.setItem('token1',JSON.stringify(usuairo));
-  // }
+  saveLocal(){ 
+    localStorage.setItem('UsersList',JSON.stringify(this.usuariosList));
+  }
   // logup(){
   //   // this.fs.writeFile('user.json')
   // }
