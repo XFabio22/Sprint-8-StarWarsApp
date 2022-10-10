@@ -15,9 +15,9 @@ export class LoginComponent implements OnInit {
 
 
   myForm: FormGroup = this.fb.group({
-    id : ['',Validators.required],
-    usuario : ['',Validators.required],
-    email:['',Validators.required],
+    id : ['1'],
+    usuario : ['romy',Validators.required],
+    email:['romy05@gmail.com',Validators.required],
 
   })
 
@@ -26,22 +26,17 @@ export class LoginComponent implements OnInit {
   
   }
   login(){
-    const usuarioRegistrado:Users ={
-      id: this.myForm.value.id,
-      email: this.myForm.value.email,
-      usuario: this.myForm.value.usuario,
-    }
-    if(this.myForm.invalid){
-      return
-    }else if(this.myForm.valid){
-    this.authService.nuevo=usuarioRegistrado;
+    if(this.myForm.valid){
       this.authService.Login().subscribe(resp =>{
         console.log(resp);
           if(resp.id){
             this.router.navigate(['./Welcome'])
           }
       })
+    
     }
+    return;
+
   }
   logout(){
     this.authService.logout();

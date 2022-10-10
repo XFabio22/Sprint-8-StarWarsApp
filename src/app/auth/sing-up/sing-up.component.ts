@@ -13,7 +13,7 @@ export class SingUpComponent implements OnInit {
 
   constructor(private AuthService:AuthService , private fb:FormBuilder , private router:Router) { }
   myForm:FormGroup =this.fb.group({
-    id:['',Validators.required],
+    id:[''],
     email:['',Validators.required],
     usuario:['',Validators.required],
   })
@@ -30,7 +30,7 @@ export class SingUpComponent implements OnInit {
     if(this.myForm.invalid){
       return
     }else if(this.myForm.valid){
-      this.AuthService.usuariosList.push(newUser)
+      
       this.AuthService.register(newUser)
       .subscribe(user => {
         console.log(user)
