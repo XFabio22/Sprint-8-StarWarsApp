@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Users } from 'src/app/interfaces/user.intefaces';
+import { User } from 'src/app/interfaces/user.intefaces';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../Services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,18 +13,19 @@ export class SingUpComponent implements OnInit {
 
   constructor(private AuthService:AuthService , private fb:FormBuilder , private router:Router) { }
   myForm:FormGroup =this.fb.group({
-    id:[''],
-    email:['',Validators.required],
-    usuario:['',Validators.required],
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    email: ['', [Validators.required]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
   })
   ngOnInit(): void {
   }
-  usuariosList!:Users
   submit(){
-    const newUser:Users={
-      id: this.myForm.value.id,
+    const newUser:User={
       email: this.myForm.value.email,
-      usuario: this.myForm.value.usuario,
+      first_name: this.myForm.value.firstName,
+      last_name:this.myForm.value.lastName,
+      password:this.myForm.value.password
     }
 
     if(this.myForm.invalid){

@@ -1,41 +1,68 @@
-<nav class="navbar  navbar-nav bg-transparent">
-
-<div class="container bg-transparent">
-    <div class="text-white">
-        <p>{{auth.usuario}}
-        </p>
+<div class="sticky-top mb-3" id="navbar-container" (mousemove)="userIsLogged()">
+    <header class="row p-2 mx-2">
+        <div class="col-12 col-md-4" id="nav-external-links">
+            <ul id="social-links" class="d-flex justify-content-center">
+                <!-- <li>
+                    <a href="" class="bi bi-facebook"></a>
+                </li>
+                <li>
+                    <a href="" class="bi bi-instagram"></a>
+                </li>
+                <li>
+                    <a href="" class="bi bi-twitter"></a>
+                </li>
+                <li>
+                    <a href="" class="bi bi-youtube"></a>
+                </li> -->
+            </ul>
+        </div>
+        <div class="col-12 col-md-4 d-flex justify-content-center">
+            <img class="img-fluid m-3" href="/" src="./assets/logoOfi.png" 
+            alt="Star Wars Logo"
+            routerLink="home">
+        </div>
+        <div class="col-12 col-md-4 d-flex justify-content-center text-primary mt-3">
+            <form>
+                <!-- <div class="input-group">
+                    <input type="search" class="form-control text-light" placeholder="Search Star Wars">
+                    <div class="input-group-append">
+                        <button class="btn text-primary" type="button"><i class="bi bi-search"></i></button>
+                    </div>
+                </div> -->
+                <span *ngIf="!isLogged"  id="nav-login" class="d-block p-2 mt-1 d-flex justify-content-end">
+                    
+                    <a class="nav-link">
+                        <a class="nav-link  text-white-50" routerLink="/auth/login">LOG IN</a>
+                    </a> 
+                    <span class="px-2 text-secondary"> // </span>
+                    <a class="nav-link">
+                        <a class="nav-link text-white-50" routerLink="/auth/singUp">SIGN UP</a>
+                    </a>
+                </span>
+                <span *ngIf="isLogged" id="nav-login" class="d-block p-2 mt-1 d-flex justify-content-end">
+                    
+                    <p>Welcome, {{ auth.first_name}}</p>
+                    <span class="px-2 text-secondary"> // </span>
+                    <a class="nav-link">
+                        <a class="nav-link" (click)="logout()">
+                            Log out
+                        </a>
+                    </a>
+                </span>
+            </form>
+        </div>
+    </header>
+    <div class="container-fluid border-bottom border-top  bg-transparent">
+            <ul class="nav justify-content-center ">
+                <li class="nav-item border border-light p-1">
+                    <a class="nav-link text-white-50 " routerLink="/StarWars/Home">Home</a>
+                </li>
+                <li class="nav-item  border border-light p-1">
+                    <a class="nav-link text-white-50" routerLink="/StarWars/StarShips">StarShips</a>
+                </li>
+            </ul>
         
-    </div>
-    <div >
-        <!-- espacio -->
-    </div>
-    <ul class="nav justify-content-center me-5  ">
-        <li>
-            <a class="navbar-brand justify-content-center " routerLink="">
-                <img src="./assets/logoOfi.png"  alt="TitleLogo"  width="250" height="88" >
-            </a>
-        </li>
-    </ul>
-    <ul class="nav justify-content-end ms-1">
-            <li class="nav-item">
-                <a class="nav-link  text-white-50" routerLink="/auth/login">LOG IN</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white-50" routerLink="/auth/singUp">SIGN UP</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="container-fluid border-bottom border-top  bg-transparent">
-        <ul class="nav justify-content-center ">
-            <li class="nav-item border border-light p-1">
-                <a class="nav-link text-white-50 " routerLink="/StarWars/Home">Home</a>
-            </li>
-            <li class="nav-item  border border-light p-1">
-                <a class="nav-link text-white-50" routerLink="/StarWars/StarShips">StarShips</a>
-            </li>
-        </ul>
-    
-    
+        
 
+    </div>
 </div>

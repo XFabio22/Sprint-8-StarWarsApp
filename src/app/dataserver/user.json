@@ -1,14 +1,11 @@
 {
   "usuarios": [
     {
-      "id": 1,
-      "usuario": "Romy",
-      "email": "romy05@gmail.com"
-    },
-    {
-      "id": 2,
-      "email": "ismael.@gmail.com",
-      "usuario": "ismael"
+      "email": "fabioaguilar222@gmail.com",
+      "first_name": "Fabio",
+      "last_name": "Aguilar",
+      "password": "1234124",
+      "id": 1
     }
   ]
 }

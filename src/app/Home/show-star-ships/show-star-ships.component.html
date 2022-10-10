@@ -17,7 +17,11 @@
         <div class="col-10 text-white-50 ">
             
             <div class="card mb-2 card-body bg-transparent ">
-                <img src='{{img}}/{{ships | id}}.jpg' class="card-img-top" alt="Img 404">
+    
+                    <img src='{{img}}/{{ships | id}}.jpg' class="card-img-top img-fluid w-50" alt='./assets/big-placeholder.png'
+                        onerror=" this.src = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg '"
+                    />
+       
                 <div class="card-body bg-transparent ">
                     <h5 class="card-title">{{ships.name |titlecase}}</h5>
                     <p class="card-text ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum pariatur similique debitis ex itaque expedita porro tenetur magni iure, dolore praesentium obcaecati quod dicta eligendi maiores rem illum quibusdam. Porro.l 
