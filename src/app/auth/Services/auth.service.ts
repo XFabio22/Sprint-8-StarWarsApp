@@ -15,9 +15,10 @@ export class AuthService {
   get auth():Users{
     return {...this._auth!}
   }
+  // fs = require('ts')
 
   statusUser():Observable<boolean> {
-    if(!localStorage.getItem('token')){
+    if(!localStorage.getItem('token1')){
       return of(false); //el OF sirve para crear Observable en base al argumento que le ponemos 
     }
     return this.http.get<Users>(`${this.base_Url}/usuarios/1`)
@@ -39,6 +40,22 @@ export class AuthService {
       );
   }
 
+
+  register(user:Users ) {
+    return this.http.post<Users>(`${this.base_Url}/usuarios/`, user)
+      .pipe(
+        tap(user => this._auth = user),
+        tap(user => localStorage.setItem('token', user.id!))
+      )
+  }
+
+
+  // saveLocal(usuairo:Users[]){ 
+  //   localStorage.setItem('token1',JSON.stringify(usuairo));
+  // }
+  // logup(){
+  //   // this.fs.writeFile('user.json')
+  // }
   
   logout(){
     this._auth = undefined;

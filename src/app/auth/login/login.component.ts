@@ -14,11 +14,11 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
 
-  // myForm: FormGroup = this.fb.group({
-  //   id : ['',Validators.required],
-  //   name : ['',Validators.required],
-  //   correo:['',Validators.required]
-  // })
+  myForm: FormGroup = this.fb.group({
+    id : ['',Validators.required],
+    name : ['',Validators.required],
+    correo:['',Validators.required]
+  })
 
   constructor(private authService:AuthService , private router:Router, private fb:FormBuilder) { }
   ngOnInit(): void {

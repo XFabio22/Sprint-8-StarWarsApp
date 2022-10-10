@@ -3,11 +3,12 @@
         <div class="col-3"></div>
         <div class="col-6 bg-light mt-5 text-center b">
             <h2>Sign Up to <br> Wars web</h2>
-            <form >
+            <form [formGroup]="myForm" >
                 <div class="mb-3 row">
                     <label  class="col-sm-2 col-form-label">Id</label>
                     <div class="col-sm-12 col-md-12 "  >
                         <input type="text" class="form-control" 
+                        formControlName="id"
                         >
                     </div>
                 </div>
@@ -15,6 +16,7 @@
                     <label  class="col-sm-2 col-form-label">UserName</label>
                     <div class="col-sm-12 col-md-12 "  >
                         <input type="text" class="form-control" 
+                        formControlName="usuario"
                         >
                     </div>
                 </div>
@@ -22,12 +24,13 @@
                     <label  class="col-sm-2 col-form-label">email</label>
                     <div class="col-sm-12 col-md-12 "  >
                         <input type="text" class="form-control" 
+                        formControlName="email"
                         >
                     </div>
                 </div>
                 
             </form>
-            <button class="btn btn-success" >Sing Up</button>
+            <button class="btn btn-success"(click)="submit()" [disabled]="myForm.invalid" >Sing Up</button>
             
 
             <div class="text-center">

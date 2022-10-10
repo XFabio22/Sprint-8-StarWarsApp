@@ -13,7 +13,7 @@ import { switchMap, tap } from 'rxjs';
 export class PilotsComponent implements OnInit {
 
   constructor(private WarsServiseService:WarsServiseService,private activatedRoute:ActivatedRoute) { }
-  @Input() pilots: pilots[] = [];
+  pilots: pilots[] = [];
 
 
     ngOnInit(): void {

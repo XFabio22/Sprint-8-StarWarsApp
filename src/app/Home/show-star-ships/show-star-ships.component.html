@@ -1,47 +1,62 @@
-<div class="container bg-transparent FondoWelcome">
+<div class="container text-center"  *ngIf="!ships; else divCarga">
     <div class="row">
-    <div class="col-1 text-white">
-        
-    </div>
-    <div class="col-10 text-white-50 ">
-        
-        <div class="card mb-2 card-body bg-transparent ">
-            <img src='{{img}}/{{ships | id}}.jpg' class="card-img-top" alt="Img 404">
-            <div class="card-body bg-transparent ">
-                <h5 class="card-title">{{ships.name |titlecase}}</h5>
-                <p class="card-text ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum pariatur similique debitis ex itaque expedita porro tenetur magni iure, dolore praesentium obcaecati quod dicta eligendi maiores rem illum quibusdam. Porro.l 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolores cum, temporibus vel veroeius officiis aspernatur, nostrum expedita ipsa rem quia consequuntur soluta neque illum, delenitiducimus maxime nesciunt.
-                </p>
-                <div class="row">
-                    <div class="col-6">
-                        <P>Model:{{ships.name}}</P>
-                    </div>
-                    <div class="col-6">
-                        <p>Manofacturer:{{ships.manufacturer}}</p>
-                    </div>
-                    <div class="col-6">
-                        <p>Cost in Credits:{{ships.cost_in_credits |number}}$</p>
-                    </div>
-                    <div class="col-6">
-                        <p>Length:{{ships.length |number}}m</p>
-                    </div>
-                    <div class="col-6">
-                        <p>Atmospheric Speed:{{ships.max_atmosphering_speed}}</p>
-                    </div>
-                    <div class="col-6">
-                        <p>Crew:{{ships.crew }}</p>
-                    </div>
-                    <div class="col-6">
-                        <a [routerLink]="['/StarWars/pilots', ships | id]">More...</a>
-                    </div>
-                </div>
-                <p class="card-text"><small class="text-muted">Last updated {{ships.edited}}</small></p>
+        <div class="col-12">
+            <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
             </div>
+        </div>  
+    </div>
+</div>
+
+<ng-template #divCarga>
+    <div class="container bg-transparent FondoWelcome">
+        <div class="row">
+        <div class="col-1 text-white">
+            
+        </div>
+        <div class="col-10 text-white-50 ">
+            
+            <div class="card mb-2 card-body bg-transparent ">
+                <img src='{{img}}/{{ships | id}}.jpg' class="card-img-top" alt="Img 404">
+                <div class="card-body bg-transparent ">
+                    <h5 class="card-title">{{ships.name |titlecase}}</h5>
+                    <p class="card-text ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum pariatur similique debitis ex itaque expedita porro tenetur magni iure, dolore praesentium obcaecati quod dicta eligendi maiores rem illum quibusdam. Porro.l 
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolores cum, temporibus vel veroeius officiis aspernatur, nostrum expedita ipsa rem quia consequuntur soluta neque illum, delenitiducimus maxime nesciunt.
+                    </p>
+                    <div class="row">
+                        <div class="col-6">
+                            <P>Model:{{ships.name}}</P>
+                        </div>
+                        <div class="col-6">
+                            <p>Manofacturer:{{ships.manufacturer}}</p>
+                        </div>
+                        <div class="col-6">
+                            <p>Cost in Credits:{{ships.cost_in_credits |number}}$</p>
+                        </div>
+                        <div class="col-6">
+                            <p>Length:{{ships.length |number}}m</p>
+                        </div>
+                        <div class="col-6">
+                            <p>Atmospheric Speed:{{ships.max_atmosphering_speed}}</p>
+                        </div>
+                        <div class="col-6">
+                            <p>Crew:{{ships.crew }}</p>
+                        </div>
+                        <div class="col-6">
+                            <a [routerLink]="['/StarWars/pilots', ships | id]">Pilots</a>
+                        </div>
+                    </div>
+                    <p class="card-text"><small class="text-muted">Last updated {{ships.edited}}</small></p>
+                </div>
+                </div>
             </div>
         </div>
+        <div class="col-1 text-white">
+        
+        </div>
+        
     </div>
-    <div class="col-1 text-white">
     
-    </div>
-    
-</div>
+
+</ng-template>
+
