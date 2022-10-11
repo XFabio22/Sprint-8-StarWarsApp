@@ -1,3 +1,4 @@
+import { User } from 'src/app/interfaces/user.intefaces';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,35 +16,30 @@ export class LoginComponent implements OnInit {
 
 
   myForm: FormGroup = this.fb.group({
-    email: ['fabioaguilar222@gmail.com',
+    email: ['fabio@gmail.com',
      //[Validators.required
       // Validators.pattern(this.validated.emailPattern)]
   ],
-    password: ['1234124', 
+    password: ['122312', 
     //[Validators.required, Validators.minLength(6)]
   ]
   })
 
 
-  get email() {
-    return this.myForm.get('email')?.value;
-  }
 
-  get password() {
-    return this.myForm.get('password')?.value;
-  }
 
   constructor(private authService:AuthService , private router:Router, private fb:FormBuilder) { }
   ngOnInit(): void {
   
   }
 
-  userData = {
+  userData:User = {
     email:this.myForm.value.email,
-    password:this.myForm.value.password
+    password:this.myForm.value.password,
   }
   login(){
     if(this.myForm.valid){
+      this.authService.loginData=this.userData;
       this.authService.Login().subscribe(resp =>{
         console.log(resp);
           if(resp!){
@@ -55,10 +51,10 @@ export class LoginComponent implements OnInit {
     return;
 
   }
-  logout(){
-    this.authService.logout();
-    this.router.navigate(['./Welcome'])
-  }
+  // logout(){
+  //   this.authService.logout();
+  //   this.router.navigate(['./Welcome'])
+  // }
 
 
 
