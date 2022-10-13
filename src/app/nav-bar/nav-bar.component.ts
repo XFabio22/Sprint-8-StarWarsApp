@@ -1,5 +1,6 @@
+import { authService } from './../auth/Services/auth.service';
 import { Router } from '@angular/router';
-import { AuthService } from './../auth/Services/auth.service';
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private authService:AuthService ,private router:Router) { }
+  constructor(private authService:authService ,private router:Router) { }
   public isCollapsed = true;
   public isLogged = false;
   ngOnInit(): void {
@@ -23,6 +24,7 @@ export class NavBarComponent implements OnInit {
   
   logout(){
     localStorage.clear();
+  //  localStorage.removeItem('token')
     this.isLogged = false;
     this.router.navigate(['/']);
   }

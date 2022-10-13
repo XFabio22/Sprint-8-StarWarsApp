@@ -1,10 +1,12 @@
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from './../Services/auth.service';
+
 
 
 import { Component, OnInit } from '@angular/core';
+import { authService } from '../Services/auth.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -15,51 +17,32 @@ export class LoginComponent implements OnInit {
 
 
   myForm: FormGroup = this.fb.group({
-    email: ['fabioaguilar222@gmail.com',
-     //[Validators.required
-      // Validators.pattern(this.validated.emailPattern)]
-  ],
-    password: ['1234124', 
-    //[Validators.required, Validators.minLength(6)]
-  ]
+    email: ['fabio@gmail.com',[Validators.required,Validators.email]],
+    password: ['123456', [Validators.required, Validators.minLength(6)]]
   })
-
-
-  get email() {
-    return this.myForm.get('email')?.value;
-  }
-
-  get password() {
-    return this.myForm.get('password')?.value;
-  }
-
-  constructor(private authService:AuthService , private router:Router, private fb:FormBuilder) { }
+  constructor(private authService:authService , private router:Router, private fb:FormBuilder) { }
   ngOnInit(): void {
   
   }
-
-  userData = {
-    email:this.myForm.value.email,
-    password:this.myForm.value.password
-  }
   login(){
-    if(this.myForm.valid){
-      this.authService.Login().subscribe(resp =>{
-        console.log(resp);
-          if(resp!){
-            this.router.navigate(['./Welcome'])
-          }
-      })
-    
+
+    if(this.myForm.invalid){
+      return
     }
-    return;
+    const{email,password} =this.myForm.value;
+    this.authService.Login(email,password)
+    .subscribe(ok =>{
+      if(ok){
+        this.router.navigate(['./Welcome'])
+      }else{
+
+      }
+    })
 
   }
-  logout(){
-    this.authService.logout();
-    this.router.navigate(['./Welcome'])
-  }
-
-
 
 }
+
+
+
+
