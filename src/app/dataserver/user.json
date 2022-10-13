@@ -1,0 +1,18 @@
+{
+  "usuarios": [
+    {
+      "email": "fabio@gmail.com",
+      "first_name": "fabio",
+      "last_name": "aguilar",
+      "password": "122312",
+      "id": 1
+    },
+    {
+      "email": "123123",
+      "first_name": "123",
+      "last_name": "123123",
+      "password": "123123212",
+      "id": 2
+    }
+  ]
+}
